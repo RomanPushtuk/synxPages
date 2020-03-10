@@ -1,11 +1,3 @@
-let globalHref = null;
-
-window.addEventListener("focus", () => {
-   if(globalHref) {
-       setTimeout(() => window.location = globalHref, 300);
-   }
-});
-
 document.body.addEventListener("click", event => {
     if (event.target.tagName === "A"){
             if(localStorage.getItem("HREF")){
@@ -16,5 +8,5 @@ document.body.addEventListener("click", event => {
 });
 
 window.addEventListener("storage", event =>  {
-    globalHref = event.newValue;
+    window.location = event.newValue;
 });
